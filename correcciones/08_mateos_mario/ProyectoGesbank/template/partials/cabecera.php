@@ -1,0 +1,11 @@
+<header>
+    <hgroup>
+        <!-- Titulos y subtitulos -->
+        <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h4 class="display-7">Proyecto Gestion Bancaria - GESBANK </h4>
+            <p class="lead">Proyecto 10.1 - Enviar email - Curso 22/23</p>
+        </div>
+        </div>
+    </hgroup>
+</header>

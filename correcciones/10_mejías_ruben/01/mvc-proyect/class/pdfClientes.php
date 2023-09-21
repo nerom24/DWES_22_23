@@ -1,0 +1,43 @@
+<?php
+
+// Genero una clase pdf por cada tabla que vaya a imprimir en mi proyecto
+class pdfCliente extends FPDF {
+
+    public function Header() {
+        $this->Image("logo/logo.png", 10, 5, 20);
+        $this->SetFont('Arial', 'B', 12);
+        $this->Cell(0, 16, 'Clientes - ' . date('d/m/Y'), 'B', 1, 'R');
+        $this->ln(5);
+    }
+
+    public function Footer() {
+        $this->setY(-10);
+        $this->SetFont('Times', 'B', 10);
+        $this->Cell(0, 10, 'Página ' . $this->PageNo() . '/{nb}', 'T', 0, 'C');
+    }
+
+    public function Titulo() {
+        $this->SetFont('Times', 'B', 10);
+        $this->SetFillColor(255, 255, 153);
+        $this->Cell(60, 10, iconv('UTF-8', 'ISO-8859-1', 'Listado:'), 1, 0, "C", true);
+        $this->Cell(0, 10, iconv('UTF-8', 'ISO-8859-1', 'Clientes'), 1, 1, '', true);
+        $this->Cell(60, 10, iconv('UTF-8', 'ISO-8859-1', 'Criterio:'), 1, 0, "C", true);
+        $this->Cell(0, 10, iconv('UTF-8', 'ISO-8859-1', 'Por id'), 1, 1, '', true);
+        $this->Ln(5);
+    }
+
+    public function CabListadoArticulos() {
+        $this->SetFont('Times', 'B', 10);
+        $this->SetFillColor(255, 255, 153);
+        $this->Cell(10, 10, iconv('UTF-8', 'ISO-8859-1', 'Id'), 1, 0, 'R');
+        $this->Cell(30, 10, iconv('UTF-8', 'ISO-8859-1', 'Nombre'), 1, 0, 'L');
+        $this->Cell(35, 10, iconv('UTF-8', 'ISO-8859-1', 'Apellidos'), 1, 0, 'L');
+        $this->Cell(25, 10, iconv('UTF-8', 'ISO-8859-1', 'Teléfono'), 1, 0, 'L');
+        $this->Cell(30, 10, iconv('UTF-8', 'ISO-8859-1', 'Ciudad'), 1, 0, 'L');
+        $this->Cell(40, 10, iconv('UTF-8', 'ISO-8859-1', 'DNI'), 1, 0, 'L');
+        $this->Cell(50, 10, iconv('UTF-8', 'ISO-8859-1', 'Email'), 1, 1, 'R');
+    }
+
+}
+
+?>
